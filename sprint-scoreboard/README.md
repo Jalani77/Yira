@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sprint Scoreboard 🏆
+
+A high-energy, gamified project management MVP that replaces traditional Jira tickets with a point-based leaderboard and video verification feed.
+
+## Features
+
+### Team Leaderboard
+- Real-time point tracking for all team members
+- Progress bar toward weekly team goal
+- Visual "Point Imbalance" detection - highlights users who need support (significantly below team average)
+- Rank badges (🥇🥈🥉) for top performers
+
+### Task Board
+- Three-column Kanban board: To-Do, In Progress, Done
+- Drag-and-drop task management
+- Color-coded task categories: Feature (Blue), Bug (Purple), Design (Pink), Urgent (Orange)
+- Point values displayed prominently on each card
+- Smooth animations powered by Framer Motion
+
+### Victory Feed
+- Social feed showcasing completed work
+- Video/screenshot proof of completion
+- "High-Five" upvote system (+10 bonus pts per upvote)
+- Real-time updates when team members complete tasks
+
+### Point & Accountability Logic
+- Points are added to user profiles only when tasks move to "Done"
+- Automatic leaderboard updates
+- Team goal progress tracking
+- Yellow highlighting for users significantly below team average
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Drag & Drop**: @hello-pangea/dnd
+- **Icons**: Lucide React
+- **State Management**: React Context API
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+sprint-scoreboard/
+├── src/
+│   ├── app/
+│   │   ├── globals.css      # Global styles
+│   │   ├── layout.tsx       # Root layout with providers
+│   │   └── page.tsx         # Main dashboard page
+│   ├── components/
+│   │   ├── Header.tsx       # App header with team stats
+│   │   ├── Leaderboard.tsx  # Team leaderboard component
+│   │   ├── TaskBoard.tsx    # Kanban task board
+│   │   ├── TaskCard.tsx     # Individual task card
+│   │   ├── VictoryFeed.tsx  # Social feed sidebar
+│   │   └── VictoryModal.tsx # Victory upload modal
+│   ├── store/
+│   │   └── SprintContext.tsx # Global state management
+│   └── types/
+│       └── index.ts         # TypeScript type definitions
+└── public/                  # Static assets
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **View the Leaderboard**: See all team members ranked by points
+2. **Manage Tasks**: Drag tasks between columns (To-Do → In Progress → Done)
+3. **Earn Points**: Move tasks to "Done" to earn points
+4. **Upload Victories**: When completing a task, optionally upload proof
+5. **High-Five Teammates**: Upvote victories in the feed to give +10 bonus points
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design Philosophy
 
-## Deploy on Vercel
+- **Live Score Dashboard**: The interface feels like a real-time sports scoreboard
+- **Clean & Light**: Light-themed aesthetic with bold typography
+- **Vibrant Accents**: Blue header, Green for points, Orange for urgent tasks
+- **Celebratory**: Animations and visual feedback make completing tasks feel rewarding
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
