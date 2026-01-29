@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSprint } from '@/store/SprintContext';
-import { X, Upload, Video, Image, Trophy, Sparkles, Camera, Film } from 'lucide-react';
+import { X, Upload, Trophy, Sparkles, Camera, Film } from 'lucide-react';
 
 export default function VictoryModal() {
   const { getPendingVictoryTask, clearPendingVictory, addVictory, users } = useSprint();

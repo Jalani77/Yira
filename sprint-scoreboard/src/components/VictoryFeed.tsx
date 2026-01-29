@@ -2,10 +2,10 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSprint } from '@/store/SprintContext';
-import { Play, Image, ThumbsUp, Clock, Sparkles, Trophy } from 'lucide-react';
+import { Play, Image as ImageIcon, ThumbsUp, Clock, Sparkles, Trophy } from 'lucide-react';
 
 export default function VictoryFeed() {
-  const { victories, upvoteVictory, users } = useSprint();
+  const { victories, upvoteVictory } = useSprint();
   
   // Assume current user is user-1 for demo purposes
   const currentUserId = 'user-1';
@@ -79,10 +79,10 @@ export default function VictoryFeed() {
                       ) : (
                         <>
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <Image className="w-16 h-16 text-gray-400" />
+                            <ImageIcon className="w-16 h-16 text-gray-400" aria-hidden="true" />
                           </div>
                           <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
-                            <Image className="w-3 h-3" /> Screenshot
+                            <ImageIcon className="w-3 h-3" aria-hidden="true" /> Screenshot
                           </div>
                         </>
                       )}

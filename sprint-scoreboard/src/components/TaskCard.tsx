@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Task, CATEGORY_COLORS, CATEGORY_LABELS } from '@/types';
 import { useSprint } from '@/store/SprintContext';
-import { User, Clock, CheckCircle2 } from 'lucide-react';
+import { Clock, CheckCircle2 } from 'lucide-react';
 
 interface TaskCardProps {
   task: Task;

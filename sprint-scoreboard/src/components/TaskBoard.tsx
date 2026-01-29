@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { useSprint } from '@/store/SprintContext';
@@ -16,14 +15,8 @@ const columns: { id: TaskStatus; title: string; icon: React.ReactNode; color: st
 
 export default function TaskBoard() {
   const { tasks, moveTask } = useSprint();
-  const [draggingId, setDraggingId] = useState<string | null>(null);
-
-  const handleDragStart = (result: { draggableId: string }) => {
-    setDraggingId(result.draggableId);
-  };
 
   const handleDragEnd = (result: DropResult) => {
-    setDraggingId(null);
     
     if (!result.destination) return;
     
@@ -34,7 +27,7 @@ export default function TaskBoard() {
   };
 
   return (
-    <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DragDropContext onDragEnd={handleDragEnd}>
       <div className="grid grid-cols-3 gap-4 h-full">
         {columns.map((column) => {
           const columnTasks = tasks.filter(t => t.status === column.id);
